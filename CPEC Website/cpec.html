@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPEC Saint Babeth TSS</title>
+
+<style>
+    /* PROGRAMS SECTION */
+.program-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.program-card {
+    background: #eaf3ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    background: #d6e8ff;
+}
+
+.program-card h3 {
+    color: #0a3d62;
+}
+
+.program-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.program-card ul li {
+    padding: 5px 0;
+}
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+    }
+
+    header {
+           display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: #0b3d91;
+    color: white;
+    padding: 15px 20px;
+    gap: 15px;
+}
+
+header img {
+    width: 70px;
+    height: 50px;
+}
+
+.header-text h1 {
+    margin: 0;
+}
+
+.header-text p {
+    margin: 0;
+    font-size: 14px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        background: #062a63;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: white;
+        padding: 14px 20px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        background: #0b3d91;
+    }
+
+    nav a.active-link {
+        background: #ffcc00;
+        color: black;
+        font-weight: bold;
+    }
+
+    section {
+        display: none;
+        padding: 40px;
+        animation: fade 0.5s ease-in-out;
+    }
+
+    .active {
+        display: block;
+    }
+
+    @keyframes fade {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .hero {
+        background: #0b3d91;
+        color: white;
+        padding: 60px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .cards {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        background: white;
+        padding: 20px;
+        flex: 1;
+        min-width: 250px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    button {
+        background: #0b3d91;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #062a63;
+    }
+
+    #msg {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    footer {
+        text-align: center;
+        background: #0b3d91;
+        color: white;
+        padding: 20px;
+    }
+   .about{
+    width: 200px;
+    height: 600px;
+    background-color: blue;
+    margin-bottom: auto;
+   } 
+
+#contact {
+    background: linear-gradient(to right, #0b3d91, #062a63);
+    padding: 50px;
+}
+
+/* MAIN CONTAINER */
+.contact-container {
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 900px;
+    margin: auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* IMAGE SIDE */
+.contact-image {
+    flex: 1;
+}
+
+.contact-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* FORM SIDE */
+.contact-form {
+    flex: 1;
+    padding: 30px;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+    color: #0b3d91;
+}
+
+/* INPUTS */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* BUTTON */
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background: #0b3d91;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #062a63;
+}
+
+/* MESSAGE TEXT */
+#msg {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+    padding: 10px 0;
+}
+
+.track {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.track img {
+    width: 300px;
+    height: 200px;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* CONTINUOUS SCROLL */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.hero {
+    position: relative;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+/* Text on top of image */
+.hero h2, .hero p {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hero h2 {
+    top: 40%;
+}
+
+.hero p {
+    top: 55%;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="Logo CPEC (2).png" alt="School Logo"width="90px"height="45px">
+    <h1>CPEC SAINT BABETH TSS</h1>
+    <p>Quality Education & Technical Skills</p>
+</header>
+
+<nav>
+    <a class="nav-link active-link" onclick="showPage('home', this)">Home</a>
+    <a class="nav-link" onclick="showPage('workshops', this)">Workshops</a>
+    <a onclick="showPage('staff', this)">Staff</a>
+    <a onclick="showPage('partnerships', this)">Partnerships</a>
+    <a class="nav-link" onclick="showPage('about', this)">About Us</a>
+    <a class="nav-link" onclick="showPage('contact', this)">Contact Us</a>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+    <h2>Welcome to CPEC SAINT BABETH TSS</h2>
+        <p id="typing"></p>
+    <div class="hero">
+        <img src="gate.jpg" alt=""height="800px"width400px>
+        
+    </div>
+
+    <h3>Our Programs</h3>
+    <ul>
+        <li>Ordinary Level Education</li>
+        <li>Software Development (L3 - L5)</li>
+        <li>Multimedia Production (L3 - L5)</li>
+    </ul>
+</section>
+
+<!-- WORKSHOPS -->
+<section id="workshops">
+    <h2>Our Workshops</h2>
+
+    <div class="cards">
+        <div class="card">
+             <h3>Software Development</h3>
+             <p>Software Development is a field of study that focuses on designing, building, and maintaining computer programs and applications. At CPEC SAINT BABETH TSS, students are trained in both theoretical concepts and practical skills required to create modern digital solutions.<br><br>
+
+Learners gain knowledge in:<br><br>
+
+Programming languages such as JavaScript and Python<br>
+Web development (HTML, CSS, JavaScript)<br>
+Application design and problem-solving<br>
+Database basics and system development<br><br>
+
+Through hands-on practice in the software development workshop, students learn how to build websites, applications, and real-world projects that prepare them for employment or further studies in ICT.</p><br>
+            <p>Learn coding, web development and app creation. “Our Software Development workshop equips students with practical programming skills, enabling them to design, build, and maintain modern applications that solve real-world problems.”</p>
+            
+            <button onclick="alert('Software Workshop selected!')">Explore</button>
+            <div class="marquee">
+                <div class="track">
+        <img src="software workshop.jpg" alt="">
+        <img src="software workshop2.jpg" alt="">
+        <img src="full-stack.jpg" alt="">
+        <img src="learn to code.jpg" alt="">
+          <img src="learn to code2.jpg" alt=""> 
+          <img src="sod workshop.jpg" alt="">
+          <img src="it courses.jpg" alt="">
+        </div>
+         </div>
+    </div>
+        <div class="card">
+            <h3>Multimedia Production</h3>
+            <p>Multimedia Production involves creating digital content using different forms of media such as images, audio, video, and animation. This program equips students with creative and technical skills to produce engaging visual and digital materials. <br><br>
+
+Students learn: <br><br>
+
+Graphic design and image editing<br>
+Video production and editing<br>
+Photography and visual storytelling<br>
+Animation and digital media tools<br><br>
+
+With access to a multimedia workshop, students gain practical experience in producing professional content for media, advertising, education, and entertainment industries.</p><br><br>
+                        
+            <p>Video editing, animation, photography skills.“Our Multimedia workshop empowers learners with creative and technical skills in graphic design, video editing, and digital content production for today’s media-driven world.”</p>
+            <button onclick="alert('Multimedia Workshop selected!')">Explore</button>
+             <div class="marquee">
+                <div class="track">
+<img src="film making.jpg" alt="">
+<img src="film school.jpg" alt="">
+<img src="multi workshop.jpg" alt="">
+<img src="video-editing.jpg" alt="">
+         </div>
+    </div>       
+        </div>
+    </div>
+</section>
+
+//Depatment field
+<section id="departments">
+    <h2>Departments</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Software Department</h3>
+            <p>Focuses on programming and system development.</p>
+        </div>
+
+        <div class="card">
+            <h3>Multimedia Department</h3>
+            <p>Focuses on digital media and creative production.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Us</h2>
+    <p>
+       
+        CPEC SAINT BABETH TSS is a private school <br> in Gicumbi District offering both general <br> education and technical training. The school provides<br> Ordinary Level studies and specialized programs in <br>Software Development and Multimedia Production (L3–L5).<br>
+
+With modern workshops and qualified teachers,<br> the institution focuses on practical skills,<br> innovation, and preparing students for the <br>job market. The school promotes discipline,<br> creativity, and excellence, aiming to become a leading <br>center of technical education in Rwanda.<br>
+    </p>
+    <p><strong>Phone:</strong> +250 7885 560 28</p>
+<p><strong>Email Address:</strong> cpecsaintbabeth@gmail.com</p>
+<p><strong>Address:</strong>  C3F8+QM8, Byumba</p>
+</section>
+<!...DRAFT....>
+
+<section id="contact">
+    <div class="contact-container">
+
+        <!-- LEFT SIDE (IMAGE) -->
+        <div class="contact-image">
+            <img src="contact.jpg" alt="Contact">
+        </div>
+
+        <!-- RIGHT SIDE (FORM) -->
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+
+            <form onsubmit="sendMessage(event)">
+                <input type="text" id="name" placeholder="Your Name">
+                <input type="email" id="email" placeholder="Your Email">
+                <textarea id="message" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <p id="msg"></p>
+        </div>
+
+    </div>
+
+
+    <h2>Contact Us</h2>
+<div class="program-container">
+ <div class="cards">
+
+        <div class="card">
+            <h3>📍 School Address</h3>
+            <p>
+                CPEC Saint Babeth TSS<br>
+                Gicumbi District, Rwanda<br>
+                P.O Box: Available on request
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📞 Phone Contacts</h3>
+            <p>
+                +250 788 555 028<br>
+                +250 7XX XXX XXX
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📧 Email</h3>
+            <p>
+                cpecsaintbabeth@gmail.com<br>
+                info@cpecschool.rw
+            </p>
+        </div>
+
+    </div>
+    <div class="program-card">
+        <h3>Software Development</h3>
+        <ul>
+            <li>Programming (JavaScript, Python)</li>
+            <li>Web Development (HTML, CSS, JS)</li>
+            <li>App Development</li>
+            <li>Database & System Design</li>
+        </ul>
+    </div>
+
+    <div class="program-card">
+        <h3>Multimedia Production</h3>
+        <ul>
+            <li>Graphic Design</li>
+            <li>Video Editing</li>
+            <li>Photography</li>
+            <li>Animation</li>
+        </ul>
+    </div>
+
+</div>
+    <form onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="email" id="email" placeholder="Your Email">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+    <p id="msg"></p>
+</section>
+
+<footer>
+    <p>&copy; 2026 CPEC Saint Babeth TSS</p>
+</footer>
+
+<script>
+    // PAGE SWITCHING + ACTIVE MENU
+    function showPage(page, element) {
+        let sections = document.querySelectorAll("section");
+        sections.forEach(sec => sec.classList.remove("active"));
+
+        document.getElementById(page).classList.add("active");
+
+        // remove active class from all links
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.classList.remove("active-link");
+        });
+
+        // add active to clicked link
+        element.classList.add("active-link");
+    }
+
+    // CONTACT FORM VALIDATION
+    function sendMessage(event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+
+        if (name === "" || email === "" || message === "") {
+            document.getElementById("msg").style.color = "red";
+            document.getElementById("msg").innerText = "Please fill all fields!";
+            return;
+        }
+
+        document.getElementById("msg").style.color = "green";
+        document.getElementById("msg").innerText =
+            "Message sent successfully. Thank you " + name + "!";
+
+        document.querySelector("form").reset();
+    }
+
+    // SIMPLE TYPING EFFECT
+    let text = "“Welcome to our Technical School, where innovation meets practical skills. We prepare students with the knowledge and hands-on experience needed to succeed in today’s digital and industrial world. Nice to meet you, and we are excited to be part of your learning journey.”";
+    let i = 0;
+
+    function typingEffect() {
+        if (i < text.length) {
+            document.getElementById("typing").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typingEffect, 100);
+        }
+    }
+
+    typingEffect();
+</script>
+
+</body>
+</html>
